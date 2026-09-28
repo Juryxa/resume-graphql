@@ -1,13 +1,13 @@
 import { Query, Resolver } from '@nestjs/graphql';
 import type { Profile } from '../graphql.js';
-import { ProfileLoader } from './loaders/profile.loader.js';
+import { ProfileService } from './profile.service.js';
 
 @Resolver('Profile')
 export class ProfileResolver {
-  constructor(private readonly profileLoader: ProfileLoader) {}
+  constructor(private readonly profileService: ProfileService) {}
 
   @Query('profile')
   profile(): Promise<Profile> {
-    return this.profileLoader.batchProfiles.load('profile');
+    return this.profileService.getProfile();
   }
 }

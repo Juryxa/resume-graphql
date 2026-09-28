@@ -17,13 +17,11 @@ type Project{
     description: String!
     sourceUrl:   String!
     demoUrl:     String
-    profile:     Profile!
 }
 
 type Skill{
     name:      String!
     category:  String!
-    profile:   Profile!
 }
 
 type WorkExperience{
@@ -32,7 +30,6 @@ type WorkExperience{
     startDate:    Date!
     endDate:      Date!
     achievements: String!
-    profile:      Profile!
 }
 
 type Query{

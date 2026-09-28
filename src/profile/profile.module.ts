@@ -7,7 +7,6 @@ import { SkillService } from './skill/skill.service.js';
 import { SkillResolver } from './skill/skill.resolver.js';
 import { WorkExperienceService } from './work-experience/work-experience.service.js';
 import { WorkExperienceResolver } from './work-experience/work-experience.resolver.js';
-import { ProfileLoader } from './loaders/profile.loader.js';
 
 @Module({
   providers: [
@@ -19,7 +18,6 @@ import { ProfileLoader } from './loaders/profile.loader.js';
     SkillResolver,
     WorkExperienceService,
     WorkExperienceResolver,
-    ProfileLoader,
   ],
 })
 export class ProfileModule {}
