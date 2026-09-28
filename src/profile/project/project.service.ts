@@ -8,7 +8,8 @@ export class ProjectService {
 
   async getProjects(): Promise<Project[]> {
     try {
-      return await this.prisma.project.findMany();
+      const projects = await this.prisma.project.findMany();
+      return projects.map((p) => ({ ...p, demoUrl: p.demoUrl ?? undefined }));
     } catch (e) {
       throw new InternalServerErrorException('Не удалось получить проекты');
     }

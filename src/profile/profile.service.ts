@@ -13,9 +13,19 @@ export class ProfileService {
 
   async getProfile(): Promise<Profile> {
     try {
-      return await this.prisma.profile.findFirstOrThrow({
+      const profile = await this.prisma.profile.findFirstOrThrow({
         include: { projects: true, skills: true, workExperience: true },
       });
+      return {
+        ...profile,
+        linkedinUrl: profile.linkedinUrl ?? undefined,
+        otherLinks:
+          (profile.otherLinks as Record<string, unknown>) ?? undefined,
+        projects: profile.projects.map((p) => ({
+          ...p,
+          demoUrl: p.demoUrl ?? undefined,
+        })),
+      };
     } catch (e) {
       if (e instanceof PrismaClientKnownRequestError && e.code === 'P2025') {
         throw new NotFoundException('Профиль не найден');
