@@ -1,0 +1,47 @@
+scalar JSON
+scalar Date
+
+type Profile{
+    id:          ID!
+    name:        String!
+    description: String!
+    githubUrl:   String!
+    linkedinUrl: String
+    otherLinks:  JSON
+    projects:       [Project!]!
+    skills:         [Skill!]!
+    workExperience: [WorkExperience!]!
+}
+
+type Project{
+    id:          ID!
+    name:        String!
+    description: String!
+    sourceUrl:   String!
+    demoUrl:     String
+    profile:     Profile!
+}
+
+type Skill{
+    id:        ID!
+    name:      String!
+    category:  String!
+    profile:   Profile!
+}
+
+type WorkExperience{
+    id:           ID!
+    company:      String!
+    position:     String!
+    startDate:    Date!
+    endDate:      Date!
+    achievements: String!
+    profile:      Profile!
+}
+
+type Query{
+    profile: Profile!
+    skills: [Skill!]!
+    experience: [WorkExperience!]!
+    projects: [Project!]!
+}

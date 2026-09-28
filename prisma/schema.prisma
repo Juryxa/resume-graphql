@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Profile {
+  id          String @id @default(uuid())
+  name        String
+  description String
+  githubUrl   String @unique @map("github_url")
+  linkedinUrl String @unique @map("linkedin_url")
+  otherLinks  Json?  @map("other_links")
+
+  projects       Project[]        @relation("profile_project")
+  skills         Skill[]          @relation("profile_skill")
+  workExperience WorkExperience[] @relation("profile_work_exp")
+
+  @@map("profile")
+}
+
+model Project {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String
+  sourceUrl   String  @map("source_url")
+  demoUrl     String? @map("demo_url")
+  profileId   String  @map("profile_id")
+  profile     Profile @relation("profile_project", fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@map("project")
+}
+
+model Skill {
+  id        Int     @id @default(autoincrement())
+  name      String
+  category  String
+  profileId String  @map("profile_id")
+  profile   Profile @relation("profile_skill", fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@map("skill")
+}
+
+model WorkExperience {
+  id           Int      @id @default(autoincrement())
+  company      String
+  position     String
+  startDate    DateTime @map("start_date")
+  endDate      DateTime @map("end_date")
+  achievements String
+  profileId    String   @map("profile_id")
+  profile      Profile  @relation("profile_work_exp", fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@map("work_experience")
+}
