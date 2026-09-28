@@ -24,13 +24,11 @@ export class Project {
     description: string;
     sourceUrl: string;
     demoUrl?: Nullable<string>;
-    profile: Profile;
 }
 
 export class Skill {
     name: string;
     category: string;
-    profile: Profile;
 }
 
 export class WorkExperience {
@@ -39,7 +37,6 @@ export class WorkExperience {
     startDate: DateTime;
     endDate: DateTime;
     achievements: string;
-    profile: Profile;
 }
 
 export abstract class IQuery {
@@ -52,6 +49,6 @@ export abstract class IQuery {
     abstract projects(): Project[] | Promise<Project[]>;
 }
 
-export type JSON = any;
-export type DateTime = any;
+export type JSON = Record<string, unknown>;
+export type DateTime = Date;
 type Nullable<T> = T | null;

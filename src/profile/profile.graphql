@@ -1,5 +1,5 @@
 scalar JSON
-scalar Date
+scalar DateTime
 
 type Profile{
     name:        String!
@@ -27,8 +27,8 @@ type Skill{
 type WorkExperience{
     company:      String!
     position:     String!
-    startDate:    Date!
-    endDate:      Date!
+    startDate:    DateTime!
+    endDate:      DateTime!
     achievements: String!
 }
 

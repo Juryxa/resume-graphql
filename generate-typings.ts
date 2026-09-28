@@ -7,7 +7,7 @@ definitionsFactory.generate({
   path: join(process.cwd(), 'src/graphql.ts'),
   outputAs: 'class',
   customScalarTypeMapping: {
-    Date: 'Date',
+    DateTime: 'Date',
     JSON: 'Record<string, unknown>',
   },
   watch: true,

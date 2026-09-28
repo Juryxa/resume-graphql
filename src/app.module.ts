@@ -20,7 +20,7 @@ import { DateTimeResolver } from 'graphql-scalars';
         path: join(process.cwd(), 'src/graphql.ts'),
         outputAs: 'class',
         customScalarTypeMapping: {
-          Date: 'Date',
+          DateTime: 'Date',
           JSON: 'Record<string, unknown>',
         },
       },
@@ -28,7 +28,7 @@ import { DateTimeResolver } from 'graphql-scalars';
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       resolvers: {
         JSON: GraphQLJSON,
-        Date: DateTimeResolver,
+        DateTime: DateTimeResolver,
       },
     }),
     ProfileModule,
