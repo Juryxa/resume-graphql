@@ -6,6 +6,7 @@ import { ProfileModule } from './profile/profile.module.js';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
+import GraphQLJSON from 'graphql-type-json';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ConfigModule } from '@nestjs/config';
       },
       graphiql: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      resolvers: { JSON: GraphQLJSON },
     }),
     ProfileModule,
   ],
