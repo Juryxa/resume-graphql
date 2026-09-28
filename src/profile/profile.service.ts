@@ -4,8 +4,8 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service.js';
-import { Profile } from '../graphql.js';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client';
+import { Profile } from '../generated/prisma/client.js';
 
 @Injectable()
 export class ProfileService {

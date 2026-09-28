@@ -1,7 +1,7 @@
 import { Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import { WorkExperienceService } from './work-experience.service.js';
 import { ProfileLoader } from '../loaders/profile.loader.js';
-import { Profile, WorkExperience } from '../../graphql.js';
+import type { Profile, WorkExperience } from '../../generated/prisma/client.js';
 
 @Resolver('WorkExperience')
 export class WorkExperienceResolver {

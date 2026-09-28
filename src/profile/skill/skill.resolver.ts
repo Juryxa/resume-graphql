@@ -1,7 +1,7 @@
 import { Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import { SkillService } from './skill.service.js';
 import { ProfileLoader } from '../loaders/profile.loader.js';
-import { Profile, Skill } from '../../graphql.js';
+import type { Profile, Skill } from '../../generated/prisma/client.js';
 
 @Resolver('Skill')
 export class SkillResolver {

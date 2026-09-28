@@ -7,6 +7,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import GraphQLJSON from 'graphql-type-json';
+import { DateTimeResolver } from 'graphql-scalars';
 
 @Module({
   imports: [
@@ -21,7 +22,10 @@ import GraphQLJSON from 'graphql-type-json';
       },
       graphiql: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
-      resolvers: { JSON: GraphQLJSON },
+      resolvers: {
+        JSON: GraphQLJSON,
+        Date: DateTimeResolver,
+      },
     }),
     ProfileModule,
   ],

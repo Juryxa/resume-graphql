@@ -1,5 +1,5 @@
 import { Query, Resolver } from '@nestjs/graphql';
-import { Profile } from '../graphql.js';
+import type { Profile } from '../generated/prisma/client.js';
 import { ProfileLoader } from './loaders/profile.loader.js';
 
 @Resolver('Profile')
