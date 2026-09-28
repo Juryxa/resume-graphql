@@ -2,7 +2,6 @@ scalar JSON
 scalar Date
 
 type Profile{
-    id:          ID!
     name:        String!
     description: String!
     githubUrl:   String!
@@ -14,7 +13,6 @@ type Profile{
 }
 
 type Project{
-    id:          ID!
     name:        String!
     description: String!
     sourceUrl:   String!
@@ -23,14 +21,12 @@ type Project{
 }
 
 type Skill{
-    id:        ID!
     name:      String!
     category:  String!
     profile:   Profile!
 }
 
 type WorkExperience{
-    id:           ID!
     company:      String!
     position:     String!
     startDate:    Date!

@@ -1,7 +1,7 @@
 import { ProjectService } from './project.service.js';
 import { ProfileLoader } from '../loaders/profile.loader.js';
 import { Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
-import type { Profile, Project } from '../../generated/prisma/client.js';
+import type { Profile, Project } from '../../graphql.js';
 
 @Resolver('Project')
 export class ProjectResolver {

@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client';
-import { Profile } from '../generated/prisma/client.js';
+import { Profile } from '../graphql.js';
 
 @Injectable()
 export class ProfileService {

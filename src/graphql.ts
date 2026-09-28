@@ -9,7 +9,6 @@
 /* eslint-disable */
 
 export class Profile {
-    id: string;
     name: string;
     description: string;
     githubUrl: string;
@@ -21,7 +20,6 @@ export class Profile {
 }
 
 export class Project {
-    id: string;
     name: string;
     description: string;
     sourceUrl: string;
@@ -30,18 +28,16 @@ export class Project {
 }
 
 export class Skill {
-    id: string;
     name: string;
     category: string;
     profile: Profile;
 }
 
 export class WorkExperience {
-    id: string;
     company: string;
     position: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: DateTime;
+    endDate: DateTime;
     achievements: string;
     profile: Profile;
 }
@@ -57,4 +53,5 @@ export abstract class IQuery {
 }
 
 export type JSON = any;
+export type DateTime = any;
 type Nullable<T> = T | null;

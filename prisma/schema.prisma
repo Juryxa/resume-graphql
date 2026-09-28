@@ -8,12 +8,12 @@ datasource db {
 }
 
 model Profile {
-  id          String @id @default(uuid())
+  id          String  @id @default(uuid())
   name        String
   description String
-  githubUrl   String @unique @map("github_url")
-  linkedinUrl String @unique @map("linkedin_url")
-  otherLinks  Json?  @map("other_links")
+  githubUrl   String  @unique @map("github_url")
+  linkedinUrl String? @unique @map("linkedin_url")
+  otherLinks  Json?   @map("other_links")
 
   projects       Project[]        @relation("profile_project")
   skills         Skill[]          @relation("profile_skill")

@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader';
 import { Injectable, Scope } from '@nestjs/common';
 import { ProfileService } from '../profile.service.js';
-import { Profile } from '../../generated/prisma/client.js';
+import { Profile } from '../../graphql.js';
 
 @Injectable({ scope: Scope.REQUEST })
 export class ProfileLoader {

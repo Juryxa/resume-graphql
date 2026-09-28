@@ -1,6 +1,6 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service.js';
-import { Skill } from '../../generated/prisma/client.js';
+import { Skill } from '../../graphql.js';
 
 @Injectable()
 export class SkillService {

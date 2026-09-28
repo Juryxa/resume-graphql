@@ -19,6 +19,10 @@ import { DateTimeResolver } from 'graphql-scalars';
       definitions: {
         path: join(process.cwd(), 'src/graphql.ts'),
         outputAs: 'class',
+        customScalarTypeMapping: {
+          Date: 'Date',
+          JSON: 'Record<string, unknown>',
+        },
       },
       graphiql: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
