@@ -25,6 +25,7 @@ import { DateTimeResolver } from 'graphql-scalars';
         },
       },
       graphiql: false,
+      introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       resolvers: {
         JSON: GraphQLJSON,
