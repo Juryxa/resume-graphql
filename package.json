@@ -12,7 +12,6 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "prisma generate && prisma db push --accept-data-loss && tsx prisma/seed.ts && nest start",
     "start:prod": "prisma generate && prisma db push --accept-data-loss && node dist/prisma/seed.js && node dist/main.js",
-    "vercel-build": "prisma generate && prisma db push --accept-data-loss && tsx prisma/seed.ts && nest build",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "generate:typings": "tsx generate-typings.ts",
