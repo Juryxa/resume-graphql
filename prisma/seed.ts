@@ -189,8 +189,6 @@ async function main() {
       },
     ].map((project) => ({ ...project, profileId: profile.id })),
   });
-
-  console.log('Seed завершён:', profile.name);
 }
 
 main()
