@@ -10,5 +10,4 @@ definitionsFactory.generate({
     DateTime: 'Date',
     JSON: 'Record<string, unknown>',
   },
-  watch: true,
 });

@@ -1,21 +1,25 @@
-FROM node:26-alpine AS build
+FROM node:24.21.0-alpine3.23 AS build
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package*.json ./
+RUN npm install
 RUN npm ci
 
 COPY . .
-RUN npx prisma generate
-RUN npm run build
 
 ENV DATABASE_URL="file:./dev.db"
-RUN npx prisma db push --accept-data-loss --skip-generate \
+RUN npx prisma generate
+RUN npx tsx generate-typings.ts
+RUN npm run build
+
+
+RUN npx prisma db push --accept-data-loss \
  && npx tsx prisma/seed.ts
 
 RUN npm prune --omit=dev
 
-FROM node:26-alpine
+FROM node:24.21.0-alpine3.23
 WORKDIR /app
 ENV NODE_ENV=production
 ENV DATABASE_URL="file:./dev.db"
