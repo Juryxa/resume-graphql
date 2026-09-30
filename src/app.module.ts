@@ -4,7 +4,6 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ProfileModule } from './profile/profile.module.js';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
-import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import GraphQLJSON from 'graphql-type-json';
 import { DateTimeResolver } from 'graphql-scalars';
@@ -15,15 +14,11 @@ import { DateTimeResolver } from 'graphql-scalars';
     ConfigModule.forRoot({ isGlobal: true }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      typePaths: ['./**/*.graphql'],
-      definitions: {
-        path: join(process.cwd(), 'src/graphql.ts'),
-        outputAs: 'class',
-        customScalarTypeMapping: {
-          DateTime: 'Date',
-          JSON: 'Record<string, unknown>',
-        },
-      },
+      typePaths: [
+        process.env.NODE_ENV === 'production'
+          ? './dist/**/*.graphql'
+          : './src/**/*.graphql',
+      ],
       graphiql: false,
       introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
