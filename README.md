@@ -6,7 +6,7 @@ Backend-приложение на NestJS, отдающее через GraphQL п
 **Демо:** https://api-juryxa-ca5b9eba.vercel.app/graphql — по ссылке откроется 
 интерактивный Apollo Sandbox, из которого можно отправлять запросы.  
 Также можно отправлять запросы из Apollo Sandbox Studio https://studio.apollographql.com/sandbox/explorer. 
-Для этого в настройки подключения вставьте эту строку ```https://api-qfmxjuoit-juryxa-ca5b9eba.vercel.app/graphql```.
+Для этого в настройки подключения вставьте эту строку ```https://api-juryxa-ca5b9eba.vercel.app/graphql```.
 
 ## Стек
 
